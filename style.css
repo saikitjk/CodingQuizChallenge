@@ -1,0 +1,17 @@
+.jumbotron{
+    background-color: #dfdfdf;
+}
+
+.container{
+    background-color: #dddcdc;
+    min-height: calc(100vh - 64px); 
+    align-items: center;
+}
+
+.container h1{
+    padding-top: 5rem;
+    text-align: center;
+}
+
+
+
