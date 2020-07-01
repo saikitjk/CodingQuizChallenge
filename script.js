@@ -1,5 +1,5 @@
-function syntaxQuestionBank(){
-    var questions = [
+//function syntaxQuestionBank(){
+    var syntaxQuestions = [
         {
             title:'What is the correct syntax for referring to an external script called "xxx.js"?',
             choices:['<script src="xxx.js">','<script href"xxx.js">','<script name="xxx.js">','<script execute="xxx.js">'],
@@ -22,10 +22,10 @@ function syntaxQuestionBank(){
             answer: 'document.getElmentById("demo").innerHTML="Hello World!";'
         }
       ];
-}
+//}
 
-function commonQuestionBank(){
-    var questions = [
+//function commonQuestionBank(commonQuestions){
+    var commonQuestions = [
         {
             title: 'Commonly used data types DO NOT include:',
             choices: ['strings', 'booleans', 'alerts', 'numbers'],
@@ -54,10 +54,10 @@ function commonQuestionBank(){
 
     ];
 
-}
+//}
 
-function longQuestionBank(){
-    var questions = [
+//function longQuestionBank(){
+    var longQuestions = [
         {
             title: 'Which types of image maps can be used with JavaScript?',
             choices: ['Server-side image maps', 'Client-side image maps', 'Server-side image maps and Client-side image maps', 'None of the above'],
@@ -85,4 +85,22 @@ function longQuestionBank(){
         }
 
     ];
+//}
+
+function main(){
+
+    var score = 0;
+    for(var i=0; i < commonQuestions.length; i++){
+        var response = window.prompt(commonQuestions[i].title, commonQuestions[i].choices);
+        if (response == commonQuestions[i].answer){
+            score++;
+            console.log("right");
+        }
+        else{
+            score--;
+            console.log("wrong");
+        }
+    }
+    console.log('got' + score + '/' + commonQuestions.length)
 }
+
