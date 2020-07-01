@@ -88,8 +88,28 @@
 //}
 
 function main(){
-
     var score = 0;
+    var instruction = document.getElementById("instruction");
+    var quizOption = document.getElementById("quizOption");
+
+    instruction.style.display = "block";
+    quizOption.style.display = "none";
+    if (instruction.style.display === "block"){
+        instruction.style.display = "none";
+        quizOption.style.display = "block";
+    }
+    else{
+        instruction.style.display = "block";
+        quizOption.style.display = "none";
+    }
+
+    
+
+        
+    
+
+
+    /*
     for(var i=0; i < commonQuestions.length; i++){
         var response = window.prompt(commonQuestions[i].title, commonQuestions[i].choices);
         if (response == commonQuestions[i].answer){
@@ -101,6 +121,6 @@ function main(){
             console.log("wrong");
         }
     }
-    console.log('got' + score + '/' + commonQuestions.length)
+    console.log('got' + score + '/' + commonQuestions.length)*/
 }
 

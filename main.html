@@ -9,7 +9,8 @@
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-    
+    <!--JQuery Library-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <!--Custom CSS and Javascript-->
     <link rel="stylesheet" href="style.css">
     <script src="script.js"></script>
@@ -19,8 +20,19 @@
     <body>
         <main class="container pt-3 text-center">
             <h1>Code Quiz Challenge</h1>
+            <div id="instruction">
+                <p>Try to answer the following code-related questions within the time limit.</p>
+                <p>Keep in mind that incorrect answers will penalize your score time by ten seconds!</p>
+                <button type="button" onclick="main()" class="btn btn-success">Start Quiz</button>
+            </div>  
+            
+            <div id = "quizOption" class = "hide">
+                <p>Please select the type of questions you would like to challenge.</p>
+                <button type="button" onclick="" class="btn btn-success">Syntax Questions</button>
+                <button type="button" onclick="" class="btn btn-success">Common Questions</button>
+                <button type="button" onclick="" class="btn btn-success">Long Questions</button>
 
-            <button type="button" onclick="main()" class="btn btn-success">Start Quiz</button>
+            </div>
           
 
             
