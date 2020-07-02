@@ -1,4 +1,5 @@
-//function syntaxQuestionBank(){
+$(document).ready(function (){
+    //question bank 1
     var syntaxQuestions = [
         {
             title:'What is the correct syntax for referring to an external script called "xxx.js"?',
@@ -22,9 +23,7 @@
             answer: 'document.getElmentById("demo").innerHTML="Hello World!";'
         }
       ]
-//}
-
-//function commonQuestionBank(commonQuestions){
+    ///question bank 2
     var commonQuestions = [
         {
             title: 'Commonly used data types DO NOT include:',
@@ -54,9 +53,7 @@
 
     ]
 
-//}
-
-//function longQuestionBank(){
+    ///question bank 3
     var longQuestions = [
         {
             title: 'Which types of image maps can be used with JavaScript?',
@@ -85,7 +82,6 @@
         }
 
     ]
-//}
 
 var questionNum = 0;
 var userGuess;
@@ -183,28 +179,5 @@ $(document).on("click",".choices", function(){
     }
 })
 
-
-
-
-
-    
-
-        
-    
-
-
-    /*
-    for(var i=0; i < commonQuestions.length; i++){
-        var response = window.prompt(commonQuestions[i].title, commonQuestions[i].choices);
-        if (response == commonQuestions[i].answer){
-            score++;
-            console.log("right");
-        }
-        else{
-            score--;
-            console.log("wrong");
-        }
-    }
-    console.log('got' + score + '/' + commonQuestions.length)*/
-
+});//.ready method close tag
 
