@@ -1,4 +1,4 @@
-$(document).ready(function (){
+
     //question bank 1
     var syntaxQuestions = [
         {
@@ -123,6 +123,8 @@ function displayCommonQuestions(){
     $("#title").children().hide();
     $("#choices").children().hide();
     $("#answer").children().hide();
+    $("#sign").children().hide();
+
 
     var displayQuest = $("<h2>");
     displayQuest.attr("id", commonQuestions[questionNum].choices);
@@ -148,7 +150,10 @@ function displayCommonQuestions(){
 var signs ={
     correct: "Correct!",
     incorrect: "Incorrect! 15 seconds taken lol",
-    line: "The correct answer is: "
+    line: "The correct answer is: ",
+    done: "All done!",
+    finalScore: "Your final score is: ",
+    initials: "Enter initials: "
 }
 
 $(document).on("click",".choices", function(){
@@ -160,11 +165,45 @@ $(document).on("click",".choices", function(){
         var result = $("<p>");
         result.append(signs.correct);//append the correct
         $("#answer").append(result)//link it back to html
+
+
         questionNum++;
-        setTimeout(displayCommonQuestions, 1000);
+        setTimeout(displayCommonQuestions, 2000);
+
+
+        console.log(questionNum, commonQuestions.length);
+        
+        if(questionNum === commonQuestions.length){
+            $("#completeMsg").children().show();
+            $("#finalScore").children().show();
+            $("#initials").children().show();
+            //trigger the complete msg
+            var comepleteMsg = $("<h5>");
+            comepleteMsg.append(signs.done);
+            $("#completeMsg").append(comepleteMsg);
+
+            //final score
+            var finalScoreMsg = $("<p>");
+            finalScoreMsg.append(signs.finalScore);
+            $("#finalScore").append(finalScoreMsg);
+
+            //initials
+            var initialMsg = $("<p>");
+            var initialSubmit = $("<button>");
+            initialMsg.append(signs.initials);
+            initialSubmit.attr("type", "button");
+            initialSubmit.attr("id", "submitButton");
+            initialSubmit.css("margin-top", "50px");
+            initialSubmit.addClass("btn btn-secondary btn-lg btn-block");
+            initialSubmit.html("Submit");
+            $("#initials").append(initialMsg, initialSubmit);
+
+
+
+        }
     }
     else if (userGuess != commonQuestions[questionNum].answer){
-    
+        
         var result = $("<h5>");
         result.append(signs.incorrect);//append the correct
         $("#sign").append(result);//link it back to html
@@ -172,12 +211,47 @@ $(document).on("click",".choices", function(){
         var answer = $("<p>");
         answer.append(signs.line,commonQuestions[questionNum].answer);
         $("#answer").append(answer);
-        questionNum++
-        setTimeout(displayCommonQuestions, 1000);
-        //clearInterval()
+
+        questionNum++;
+        setTimeout(displayCommonQuestions, 2000);
+
+        console.log(questionNum, commonQuestions.length);
+
+
+        if(questionNum === commonQuestions.length){
+            $("#completeMsg").children().show();
+            $("#finalScore").children().show();
+            $("#initials").children().show();
+            //trigger the complete msg
+            var comepleteMsg = $("<h5>");
+            comepleteMsg.append(signs.done);
+            $("#completeMsg").append(comepleteMsg);
+
+            //final score
+            var finalScoreMsg = $("<p>");
+            finalScoreMsg.append(signs.finalScore);
+            $("#finalScore").append(finalScoreMsg);
+
+            //initials
+            var initialMsg = $("<p>");
+            var initialSubmit = $("<button>");
+            initialMsg.append(signs.initials);
+            initialSubmit.attr("type", "button");
+            initialSubmit.attr("id", "submitButton");
+            initialSubmit.css("margin-top", "50px");
+            initialSubmit.addClass("btn btn-secondary btn-lg btn-block");
+            initialSubmit.html("Submit");
+            $("#initials").append(initialMsg, initialSubmit);
+
+        }
 
     }
 })
 
+
+
+/*
+$(document).ready(function (){
 });//.ready method close tag
 
+*/

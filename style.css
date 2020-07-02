@@ -39,3 +39,21 @@
     text-align: center;
     justify-content: center;
 }
+
+#allDoneRow{
+    margin-top: 60px;
+    text-align: center;
+    justify-content: center;
+}
+
+#finalScoreRow{
+    text-align: center;
+    justify-content: center;
+
+}
+
+#initialsRow{
+    text-align: center;
+    justify-content: center;
+
+}
