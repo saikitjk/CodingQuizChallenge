@@ -17,3 +17,25 @@
     display: none;
 }
 
+#questionRow{
+    margin-top: 60px;
+    text-align: center;
+    justify-content: center;
+}
+
+#choiceRow{
+    text-align: center;
+    justify-content: center;
+}
+
+#signRow{
+    margin-top: 80px;
+    text-align: center;
+    justify-content: center;
+}
+
+#answerRow{
+    margin-top: 20px;
+    text-align: center;
+    justify-content: center;
+}

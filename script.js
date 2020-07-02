@@ -21,7 +21,7 @@
             choices:['document.getElement("p").innerHTML="Hello Word!";','#demo.innerHTML = "Hello Word!";','document.getElmentById("demo").innerHTML="Hello World!";','document.getElmentByName("p").innerHTML="Hello World!";'],
             answer: 'document.getElmentById("demo").innerHTML="Hello World!";'
         }
-      ];
+      ]
 //}
 
 //function commonQuestionBank(commonQuestions){
@@ -52,7 +52,7 @@
             answer: '2names'
         }
 
-    ];
+    ]
 
 //}
 
@@ -84,12 +84,12 @@
             answer: 'FileUpLoad'
         }
 
-    ];
+    ]
 //}
 
 var questionNum = 0;
 var userGuess;
-var clock;
+var timer;
 var score;
 
 
@@ -123,7 +123,7 @@ function displayCommonQuestions(){
         quizOption.style.display= "block";
         questionRow.style.display = "none";
     }
-    
+
     $("#title").children().hide();
     $("#choices").children().hide();
     $("#answer").children().hide();
@@ -138,7 +138,7 @@ function displayCommonQuestions(){
         var choiceList = $("<button>");
         choiceList.attr("type", "button");
         choiceList.attr("value", commonQuestions[questionNum].choices[i]);
-        choiceList.css("margin", "20px");
+        choiceList.css("margin-top", "50px");
         choiceList.addClass("btn btn-secondary btn-lg btn-block choices");
         choiceList.append(commonQuestions[questionNum].choices[i]);
         $("#choices").append(choiceList);
@@ -148,6 +148,40 @@ function displayCommonQuestions(){
     //timer();
 
 }//displayCommonQuestions() close tag
+
+var signs ={
+    correct: "Correct!",
+    incorrect: "Incorrect! 15 seconds taken lol",
+    line: "The correct answer is: "
+}
+
+$(document).on("click",".choices", function(){
+    userGuess = $(this).attr("value");
+    $("answer").empty
+    
+
+    if(userGuess === commonQuestions[questionNum].answer){
+        var result = $("<p>");
+        result.append(signs.correct);//append the correct
+        $("#answer").append(result)//link it back to html
+        questionNum++;
+        setTimeout(displayCommonQuestions, 1000);
+    }
+    else if (userGuess != commonQuestions[questionNum].answer){
+    
+        var result = $("<h5>");
+        result.append(signs.incorrect);//append the correct
+        $("#sign").append(result);//link it back to html
+
+        var answer = $("<p>");
+        answer.append(signs.line,commonQuestions[questionNum].answer);
+        $("#answer").append(answer);
+        questionNum++
+        setTimeout(displayCommonQuestions, 1000);
+        //clearInterval()
+
+    }
+})
 
 
 
