@@ -87,7 +87,7 @@
     ];
 //}
 
-function main(){
+function start(){
     var score = 0;
     var instruction = document.getElementById("instruction");
     var quizOption = document.getElementById("quizOption");

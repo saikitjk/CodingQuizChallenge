@@ -19,21 +19,36 @@
     
     <body>
         <main class="container pt-3 text-center">
+            <div id="timer"></div>
             <h1>Code Quiz Challenge</h1>
+            <!--start menu-->
             <div id="instruction">
+                <section class="jumbotron">
                 <p>Try to answer the following code-related questions within the time limit.</p>
                 <p>Keep in mind that incorrect answers will penalize your score time by ten seconds!</p>
-                <button type="button" onclick="main()" class="btn btn-success">Start Quiz</button>
+                </section>
+                <button type="button" onclick="start()" class="btn btn-success">Start Quiz</button>
             </div>  
-            
+            <!--option menu-->
             <div id = "quizOption" class = "hide">
+                <section class="jumbotron">
                 <p>Please select the type of questions you would like to challenge.</p>
+                </section>
+                <br>
                 <button type="button" onclick="" class="btn btn-success">Syntax Questions</button>
-                <button type="button" onclick="" class="btn btn-success">Common Questions</button>
+                <button type="button" onclick="commonQuestions()" class="btn btn-success">Common Questions</button>
                 <button type="button" onclick="" class="btn btn-success">Long Questions</button>
-
             </div>
-          
+
+            <!--common questions-->
+            <div class="container hide" id="commonQuestions">
+                <div class="row" id="questionRow">
+                    <div id="title"></div>
+                </div>
+                <div class="row" id="choiceRow">
+                    <div id="choices"></div>
+                </div>
+            </div>
 
             
         </main>
