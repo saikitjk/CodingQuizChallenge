@@ -87,8 +87,13 @@
     ];
 //}
 
+var questionNum = 0;
+var userGuess;
+var clock;
+var score;
+
+
 function start(){
-    var score = 0;
     var instruction = document.getElementById("instruction");
     var quizOption = document.getElementById("quizOption");
 
@@ -102,6 +107,51 @@ function start(){
         instruction.style.display = "block";
         quizOption.style.display = "none";
     }
+}//start() close tag
+
+
+function displayCommonQuestions(){
+    var questionRow = document.getElementById("commonQuestions");
+    var quizOption = document.getElementById("quizOption");
+
+    quizOption.style.display = "block";
+    if (quizOption.style.display  === "block"){
+        quizOption.style.display = "none";
+        questionRow.style.display = "block";
+    }
+    else{
+        quizOption.style.display= "block";
+        questionRow.style.display = "none";
+    }
+    
+    $("#title").children().hide();
+    $("#choices").children().hide();
+    $("#answer").children().hide();
+
+    var displayQuest = $("<h2>");
+    displayQuest.attr("id", commonQuestions[questionNum].choices);
+    displayQuest.append(commonQuestions[questionNum].title);
+    $("#title").append(displayQuest);
+
+    for (i = 0; i < 4; i++) {
+
+        var choiceList = $("<button>");
+        choiceList.attr("type", "button");
+        choiceList.attr("value", commonQuestions[questionNum].choices[i]);
+        choiceList.css("margin", "20px");
+        choiceList.addClass("btn btn-secondary btn-lg btn-block choices");
+        choiceList.append(commonQuestions[questionNum].choices[i]);
+        $("#choices").append(choiceList);
+    }
+
+    //Call the countdown timer
+    //timer();
+
+}//displayCommonQuestions() close tag
+
+
+
+
 
     
 
@@ -122,5 +172,5 @@ function start(){
         }
     }
     console.log('got' + score + '/' + commonQuestions.length)*/
-}
+
 
