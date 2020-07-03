@@ -177,7 +177,7 @@ $(document).on("click",".choices", function(){
         console.log(questionNum, commonQuestions.length);
         
         if(questionNum === commonQuestions.length){
-            setTimeout(finalPage, 5000);
+            setTimeout(finalPage, 1000);
         }
     }
     else if (userGuess != commonQuestions[questionNum].answer){
@@ -197,7 +197,7 @@ $(document).on("click",".choices", function(){
 
 
         if(questionNum === commonQuestions.length){
-            setTimeout(finalPage, 5000);
+            setTimeout(finalPage, 1000);
         }
     }
 })//main close tag
