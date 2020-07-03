@@ -124,7 +124,10 @@ function displayCommonQuestions(){
     $("#choices").children().hide();
     $("#answer").children().hide();
     $("#sign").children().hide();
-
+    //$("#completeMsg").children().hide();
+    //$("#finalScore").children().hide();
+    //$("#initials").children().hide();
+    
 
     var displayQuest = $("<h2>");
     displayQuest.attr("id", commonQuestions[questionNum].choices);
@@ -155,7 +158,7 @@ var signs ={
     finalScore: "Your final score is: ",
     initials: "Enter initials: "
 }
-
+//main
 $(document).on("click",".choices", function(){
     userGuess = $(this).attr("value");
     $("answer").empty
@@ -174,32 +177,7 @@ $(document).on("click",".choices", function(){
         console.log(questionNum, commonQuestions.length);
         
         if(questionNum === commonQuestions.length){
-            $("#completeMsg").children().show();
-            $("#finalScore").children().show();
-            $("#initials").children().show();
-            //trigger the complete msg
-            var comepleteMsg = $("<h5>");
-            comepleteMsg.append(signs.done);
-            $("#completeMsg").append(comepleteMsg);
-
-            //final score
-            var finalScoreMsg = $("<p>");
-            finalScoreMsg.append(signs.finalScore);
-            $("#finalScore").append(finalScoreMsg);
-
-            //initials
-            var initialMsg = $("<p>");
-            var initialSubmit = $("<button>");
-            initialMsg.append(signs.initials);
-            initialSubmit.attr("type", "button");
-            initialSubmit.attr("id", "submitButton");
-            initialSubmit.css("margin-top", "50px");
-            initialSubmit.addClass("btn btn-secondary btn-lg btn-block");
-            initialSubmit.html("Submit");
-            $("#initials").append(initialMsg, initialSubmit);
-
-
-
+            setTimeout(finalPage, 5000);
         }
     }
     else if (userGuess != commonQuestions[questionNum].answer){
@@ -219,7 +197,14 @@ $(document).on("click",".choices", function(){
 
 
         if(questionNum === commonQuestions.length){
-            $("#completeMsg").children().show();
+            setTimeout(finalPage, 5000);
+        }
+    }
+})//main close tag
+
+
+function finalPage(){
+    $("#completeMsg").children().show();
             $("#finalScore").children().show();
             $("#initials").children().show();
             //trigger the complete msg
@@ -242,12 +227,7 @@ $(document).on("click",".choices", function(){
             initialSubmit.addClass("btn btn-secondary btn-lg btn-block");
             initialSubmit.html("Submit");
             $("#initials").append(initialMsg, initialSubmit);
-
-        }
-
-    }
-})
-
+}
 
 
 /*
