@@ -124,6 +124,8 @@ function displayCommonQuestions(){
     $("#choices").children().hide();
     $("#answer").children().hide();
     $("#sign").children().hide();
+    $("#timer").children().hide();
+    
     //$("#completeMsg").children().hide();
     //$("#finalScore").children().hide();
     //$("#initials").children().hide();
@@ -146,7 +148,8 @@ function displayCommonQuestions(){
     }
 
     //Call the countdown timer
-    //timer();
+    countDown();
+    setInterval(countDown,1000);
 
 }//displayCommonQuestions() close tag
 
@@ -230,8 +233,38 @@ function finalPage(){
 }
 
 
-/*
-$(document).ready(function (){
-});//.ready method close tag
+function scoreSystem(){
 
-*/
+}
+
+
+function countDown(){
+    $("#timer").empty();
+    timer = 5;
+    var time = $("<h6>");
+    time.append("Time remaining: " + timer + "seconds");
+    $("#timer").append(time);
+    var time = setInterval(clock, 1000);
+
+    }
+
+function clock(){
+    $("#timer").empty();
+    timer--;
+    var time = $("<h6>");
+    time.append("Time remaining: " + timer + "seconds");
+    $("#timer").append(time);
+    
+    if(timer < 0){
+        $("#title").children().hide();
+        $("#choices").children().hide();
+        $("#answer").children().hide();
+        $("#sign").children().hide();
+        $("#timer").children().hide();
+
+        setTimeout(finalPage, 1000);
+        clearInterval(time);
+
+    }
+    
+}
