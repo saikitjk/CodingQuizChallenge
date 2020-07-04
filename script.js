@@ -103,6 +103,13 @@ function start(){
         instruction.style.display = "block";
         quizOption.style.display = "none";
     }
+    //function for triggering the timer
+    $("#comQuest").on("click", function(){
+    console.log("hi");
+    countDown();
+    });
+///end tag
+    
 }//start() close tag
 
 
@@ -147,11 +154,12 @@ function displayCommonQuestions(){
         $("#choices").append(choiceList);
     }
 
-    //Call the countdown timer
-    countDown();
-    setInterval(countDown,1000);
-
 }//displayCommonQuestions() close tag
+
+//Call the countdown timer
+//countDown();
+
+
 
 var signs ={
     correct: "Correct!",
@@ -167,23 +175,24 @@ $(document).on("click",".choices", function(){
     $("answer").empty
     
 
-    if(userGuess === commonQuestions[questionNum].answer){
+    if(userGuess === commonQuestions[questionNum].answer && timer != 0){
         var result = $("<p>");
         result.append(signs.correct);//append the correct
         $("#answer").append(result)//link it back to html
 
 
         questionNum++;
-        setTimeout(displayCommonQuestions, 2000);
+        setTimeout(displayCommonQuestions, 1500);
 
 
-        console.log(questionNum, commonQuestions.length);
+        //console.log(questionNum, commonQuestions.length);
         
         if(questionNum === commonQuestions.length){
-            setTimeout(finalPage, 1000);
+            setTimeout(finalPage, 2500);
+            clearInterval(time);
         }
     }
-    else if (userGuess != commonQuestions[questionNum].answer){
+    else if (userGuess != commonQuestions[questionNum].answer && timer != 0){
         
         var result = $("<h5>");
         result.append(signs.incorrect);//append the correct
@@ -193,14 +202,16 @@ $(document).on("click",".choices", function(){
         answer.append(signs.line,commonQuestions[questionNum].answer);
         $("#answer").append(answer);
 
+        //timer -= 5;
         questionNum++;
         setTimeout(displayCommonQuestions, 2000);
 
-        console.log(questionNum, commonQuestions.length);
+        //console.log(questionNum, commonQuestions.length);
 
 
         if(questionNum === commonQuestions.length){
-            setTimeout(finalPage, 1000);
+            setTimeout(finalPage, 2500);
+            clearInterval(time);
         }
     }
 })//main close tag
@@ -240,22 +251,22 @@ function scoreSystem(){
 
 function countDown(){
     $("#timer").empty();
-    timer = 5;
-    var time = $("<h6>");
-    time.append("Time remaining: " + timer + "seconds");
-    $("#timer").append(time);
-    var time = setInterval(clock, 1000);
+    timer = 20;
+    var timeDiv = $("<h6>");
+    timeDiv.append("Time remaining: " + timer + "seconds");
+    $("#timer").append(timeDiv);
+    time = setInterval(clock, 1000);
 
     }
 
 function clock(){
     $("#timer").empty();
     timer--;
-    var time = $("<h6>");
-    time.append("Time remaining: " + timer + "seconds");
-    $("#timer").append(time);
+    var timeDiv = $("<h6>");
+    timeDiv.append("Time remaining: " + timer + "seconds");
+    $("#timer").append(timeDiv);
     
-    if(timer < 0){
+    if(timer === 0){
         $("#title").children().hide();
         $("#choices").children().hide();
         $("#answer").children().hide();
@@ -265,6 +276,9 @@ function clock(){
         setTimeout(finalPage, 1000);
         clearInterval(time);
 
+        if(questionNum === commonQuestions.length){
+            setTimeout(finalPage, 2500);
+            clearInterval(time);
+        }
     }
-    
 }
