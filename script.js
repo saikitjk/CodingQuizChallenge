@@ -83,10 +83,13 @@
 
     ]
 
+/////////////////////////////QuestionBank//////////////////////////////
+
+
 var questionNum = 0;
 var userGuess;
 var timer;
-var score;
+var score = 0;
 
 
 function start(){
@@ -105,14 +108,13 @@ function start(){
     }
     //function for triggering the timer
     $("#comQuest").on("click", function(){
-    console.log("hi");
     countDown();
     });
 ///end tag
     
 }//start() close tag
 
-
+/////////////////////////////CommonQuestion///////////////////////////////
 function displayCommonQuestions(){
     var questionRow = document.getElementById("commonQuestions");
     var quizOption = document.getElementById("quizOption");
@@ -156,11 +158,6 @@ function displayCommonQuestions(){
 
 }//displayCommonQuestions() close tag
 
-//Call the countdown timer
-//countDown();
-
-
-
 var signs ={
     correct: "Correct!",
     incorrect: "Incorrect! 15 seconds taken lol",
@@ -180,7 +177,8 @@ $(document).on("click",".choices", function(){
         result.append(signs.correct);//append the correct
         $("#answer").append(result)//link it back to html
 
-
+        score+=5;
+        console.log(score)
         questionNum++;
         setTimeout(displayCommonQuestions, 1500);
 
@@ -203,6 +201,7 @@ $(document).on("click",".choices", function(){
         $("#answer").append(answer);
 
         timer -= 15;
+        score -= 2;
         questionNum++;
         setTimeout(displayCommonQuestions, 2000);
 
@@ -215,6 +214,7 @@ $(document).on("click",".choices", function(){
         }
     }
 })//main close tag
+/////////////////////////////CommonQuestion///////////////////////////////
 
 
 function finalPage(){
@@ -228,27 +228,32 @@ function finalPage(){
 
             //final score
             var finalScoreMsg = $("<p>");
-            finalScoreMsg.append(signs.finalScore);
+            //finalScoreMsg.append(signs.finalScore);
+            finalScoreMsg = signs.finalScore + score;
             $("#finalScore").append(finalScoreMsg);
 
             //initials
             var initialMsg = $("<p>");
-            var initialSubmit = $("<button>");
             initialMsg.append(signs.initials);
+            var initialBox = $("<input>");
+            initialBox.attr("type", "text");
+            initialBox.attr("id", "initialBox");
+
+            var initialSubmit = $("<button>");
             initialSubmit.attr("type", "button");
             initialSubmit.attr("id", "submitButton");
             initialSubmit.css("margin-top", "50px");
             initialSubmit.addClass("btn btn-secondary btn-lg btn-block");
             initialSubmit.html("Submit");
-            $("#initials").append(initialMsg, initialSubmit);
+
+
+            
+
+            $("#initials").append(initialMsg,initialBox,initialSubmit);
 }
 
 
-function scoreSystem(){
-
-}
-
-
+////////////////////////////////////Timer///////////////////////////////
 function countDown(){
     $("#timer").empty();
     timer = 75;
@@ -282,3 +287,9 @@ function clock(){
         }
     }
 }
+////////////////////////////////////Timer///////////////////////////////
+
+
+$("#scoreBoard").on("click", function(){
+    
+    });
