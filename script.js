@@ -202,7 +202,7 @@ $(document).on("click",".choices", function(){
         answer.append(signs.line,commonQuestions[questionNum].answer);
         $("#answer").append(answer);
 
-        //timer -= 5;
+        timer -= 15;
         questionNum++;
         setTimeout(displayCommonQuestions, 2000);
 
@@ -251,7 +251,7 @@ function scoreSystem(){
 
 function countDown(){
     $("#timer").empty();
-    timer = 20;
+    timer = 75;
     var timeDiv = $("<h6>");
     timeDiv.append("Time remaining: " + timer + "seconds");
     $("#timer").append(timeDiv);
