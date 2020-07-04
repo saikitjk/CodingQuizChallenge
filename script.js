@@ -135,6 +135,7 @@ function displayCommonQuestions(){
     $("#sign").children().hide();
     $("#timer").children().hide();
     
+    
     //$("#completeMsg").children().hide();
     //$("#finalScore").children().hide();
     //$("#initials").children().hide();
@@ -164,7 +165,8 @@ var signs ={
     line: "The correct answer is: ",
     done: "All done!",
     finalScore: "Your final score is: ",
-    initials: "Enter initials: "
+    initials: "Enter initials: ",
+    highScore: "Highscores"
 }
 //main
 $(document).on("click",".choices", function(){
@@ -218,7 +220,7 @@ $(document).on("click",".choices", function(){
 
 
 function finalPage(){
-    $("#completeMsg").children().show();
+            $("#completeMsg").children().show();
             $("#finalScore").children().show();
             $("#initials").children().show();
             //trigger the complete msg
@@ -238,18 +240,17 @@ function finalPage(){
             var initialBox = $("<input>");
             initialBox.attr("type", "text");
             initialBox.attr("id", "initialBox");
+            $("#initials").append(initialMsg,initialBox);
 
             var initialSubmit = $("<button>");
             initialSubmit.attr("type", "button");
             initialSubmit.attr("id", "submitButton");
+            //initialSubmit.attr("data-toggle", "modal")
+            //initialSubmit.attr("data-target", "scoreCenter")
             initialSubmit.css("margin-top", "50px");
             initialSubmit.addClass("btn btn-secondary btn-lg btn-block");
             initialSubmit.html("Submit");
-
-
-            
-
-            $("#initials").append(initialMsg,initialBox,initialSubmit);
+            $("#submitButton").append(initialSubmit);
 }
 
 
@@ -289,7 +290,21 @@ function clock(){
 }
 ////////////////////////////////////Timer///////////////////////////////
 
+////////////////////////////////////Scoreboard///////////////////////////////
 
-$("#scoreBoard").on("click", function(){
-    
+$(document).ready(function() {
+    console.log('ready');
+    $("#scoreBoard").on("click", function(){
+        var scoreContent = document.getElementById("modalBody");
+        
+        var scoreTitle = $("<h5>");
+        scoreTitle.append(signs.highScore);
+        $("#scoreTitle").append(scoreTitle);
+
+        
+        });
     });
+
+
+
+////////////////////////////////////ScoreBoard///////////////////////////////

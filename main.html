@@ -20,7 +20,7 @@
     <body>
         <main class="container pt-3 text-center">
             <nav class="navbar navbar-expand-lg navbar-light bg-light">
-                <div id="scoreBoard">Scoreboard</div>
+                <div id="scoreBoard" data-toggle="modal" data-target="#scoreCenter">Scoreboard</div>
                   <ul class="navbar-nav ml-auto">
                     <li class="nav-item">
                         <div id="timer"></div>
@@ -72,7 +72,30 @@
                 <div class="row" id="initialsRow">
                     <div id="initials"></div>
                 </div>
+                <div class="row" id="submitRow">
+                    <div id="submitButton"></div>
+                </div>
             </div>
+
+            <div class="modal fade" id="scoreCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered" role="document">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h5 class="modal-title" id="exampleModalLongTitle">Scoreboard</h5>
+                      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                      </button>
+                    </div>
+                    <div class="modal-body" id="modalBody">
+                        <div id="scoreTitle"></div>
+                    </div>
+                    <div class="modal-footer">
+                      <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                      <button type="button" class="btn btn-primary">Clear Hightscores</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
 
            
 
