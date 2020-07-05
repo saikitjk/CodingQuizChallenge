@@ -1,9 +1,13 @@
+.navbar{
+    width:100%;
+} 
+
 .jumbotron{
     background-color: #dfdfdf;
 }
 
 .container{
-    background-color: #dddcdc;
+    /*background-color: #dddcdc;*/
     min-height: calc(100vh - 64px); 
     align-items: center;
 }

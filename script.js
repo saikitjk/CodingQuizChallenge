@@ -91,6 +91,8 @@ var userGuess;
 var timer;
 var score = 0;
 
+renPreviousUser();
+
 
 function start(){
     var instruction = document.getElementById("instruction");
@@ -265,16 +267,20 @@ function finalPage(){
 
             //submit action
             $("#submitButton").on("click", function(){
-                //var scoreContent = initialBox.value;
                 var initialInput = document.getElementById("initialBox").value;
-                var nameList = $("<li>");
+                var nameList = $("<p>");
                 nameList.append(initialInput + " score is " + score);
                 $("#nameList").append(nameList);
+
                 $("#submitButton").children().hide();
                 $("#resetButton").children().show();
                 //console.log(initialInput);
-            });
 
+                localStorage.setItem("userName", JSON.stringify(initialInput));
+                localStorage.setItem("userScore", JSON.stringify(score));
+                
+            });
+            //reset action
             $("#resetButton").on("click", function(){
                 location.reload();
             })
@@ -308,28 +314,33 @@ function clock(){
 
         setTimeout(finalPage, 1000);
         clearInterval(time);
-        /*
-        if(questionNum === commonQuestions.length){
-            setTimeout(finalPage, 2500);
-            clearInterval(time);
-        }*/
+        
     }
 }
 ////////////////////////////////////Timer///////////////////////////////
 
 ////////////////////////////////////Scoreboard popup///////////////////////////////
 
-$(document).ready(function() {
+
+function renPreviousUser(){
+    var userName = localStorage.getItem("userName");
+    var userScore = localStorage.getItem("userScore");
+    console.log(userName);
+    console.log(userScore);
+    var previousUser = $("<li>");
+    previousUser.append(userName + " score is " + userScore);
+    $("#previousUser").append(previousUser);
+
+}
     
-    console.log('ready');
+/*
     $("#scoreBoard").on("click", function(){
         //var scoreContent = document.getElementById("modalBody");
         
-        var scoreTitle = $("<h6>");
-        scoreTitle.append(signs.highScore);
-        $("#scoreTitle").append(scoreTitle);
+        renPreviousUser();
+        
         });
-    });
+
 
 ////////////////////////////////////ScoreBoard///////////////////////////////
 
