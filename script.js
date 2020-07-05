@@ -173,7 +173,7 @@ $(document).on("click",".choices", function(){
     $("answer").empty
     
 
-    if(userGuess === commonQuestions[questionNum].answer && timer != 0){
+    if(userGuess === commonQuestions[questionNum].answer && timer > 0){
         var result = $("<p>");
         result.append(signs.correct);//append the correct
         $("#answer").append(result)//link it back to html
@@ -191,7 +191,7 @@ $(document).on("click",".choices", function(){
             clearInterval(time);
         }
     }
-    else if (userGuess != commonQuestions[questionNum].answer && timer != 0){
+    else if (userGuess != commonQuestions[questionNum].answer && timer > 0){
         
         var result = $("<h5>");
         result.append(signs.incorrect);//append the correct
@@ -222,6 +222,7 @@ function finalPage(){
             $("#completeMsg").children().show();
             $("#finalScore").children().show();
             $("#initials").children().show();
+            $("#resetButton").children().hide();
             //trigger the complete msg
             var comepleteMsg = $("<h5>");
             comepleteMsg.append(signs.done);
@@ -241,15 +242,26 @@ function finalPage(){
             initialBox.attr("id", "initialBox");
             $("#initials").append(initialMsg,initialBox);
 
+            //submit button
             var initialSubmit = $("<button>");
             initialSubmit.attr("type", "button");
             initialSubmit.attr("id", "submitButton");
-            //initialSubmit.attr("data-toggle", "modal")
-            //initialSubmit.attr("data-target", "scoreCenter")
             initialSubmit.css("margin-top", "50px");
-            initialSubmit.addClass("btn btn-secondary btn-lg btn-block");
+            initialSubmit.addClass("btn btn-info btn-lg btn-block");
             initialSubmit.html("Submit");
             $("#submitButton").append(initialSubmit);
+
+            //reset button
+            var resetButton = $("<button>");
+            resetButton.attr("type","button");
+            resetButton.attr("id","resetButton");
+            resetButton.css("margin-top", "50px");
+            resetButton.addClass("btn btn-warning btn-lg btn-block");
+            resetButton.html("Reset");
+            $("#resetButton").append(resetButton);
+
+
+
 
             //submit action
             $("#submitButton").on("click", function(){
@@ -259,11 +271,13 @@ function finalPage(){
                 nameList.append(initialInput + " score is " + score);
                 $("#nameList").append(nameList);
                 $("#submitButton").children().hide();
+                $("#resetButton").children().show();
                 //console.log(initialInput);
-                $
-        
-                
-                });
+            });
+
+            $("#resetButton").on("click", function(){
+                location.reload();
+            })
 }
 
 
@@ -285,7 +299,7 @@ function clock(){
     timeDiv.append("Time remaining: " + timer + "seconds");
     $("#timer").append(timeDiv);
     
-    if(timer === 0){
+    if(timer < 1){
         $("#title").children().hide();
         $("#choices").children().hide();
         $("#answer").children().hide();
@@ -294,11 +308,11 @@ function clock(){
 
         setTimeout(finalPage, 1000);
         clearInterval(time);
-
+        /*
         if(questionNum === commonQuestions.length){
             setTimeout(finalPage, 2500);
             clearInterval(time);
-        }
+        }*/
     }
 }
 ////////////////////////////////////Timer///////////////////////////////
