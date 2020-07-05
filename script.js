@@ -91,7 +91,25 @@ var userGuess;
 var timer;
 var score = 0;
 
+////////////////////////renPreviousUser///////////////////
+$(document).ready(function () {
+    function renPreviousUser(){
+        var userName = localStorage.getItem("userName") ;
+        var userScore = localStorage.getItem("userScore");
+        console.log(userName);
+        console.log(userScore);
+        var previousUser = $("<li>");
+        previousUser.append(userName + " score is " + userScore);
+        $("#previousUser").append(previousUser);
+        console.log(previousUser);
+
+        //$("#previousUser").append(previousUser);
+
+    }
+
+
 renPreviousUser();
+});
 
 
 function start(){
@@ -278,6 +296,8 @@ function finalPage(){
 
                 localStorage.setItem("userName", JSON.stringify(initialInput));
                 localStorage.setItem("userScore", JSON.stringify(score));
+
+        
                 
             });
             //reset action
@@ -321,17 +341,6 @@ function clock(){
 
 ////////////////////////////////////Scoreboard popup///////////////////////////////
 
-
-function renPreviousUser(){
-    var userName = localStorage.getItem("userName");
-    var userScore = localStorage.getItem("userScore");
-    console.log(userName);
-    console.log(userScore);
-    var previousUser = $("<li>");
-    previousUser.append(userName + " score is " + userScore);
-    $("#previousUser").append(previousUser);
-
-}
     
 /*
     $("#scoreBoard").on("click", function(){
