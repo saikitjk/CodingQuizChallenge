@@ -165,8 +165,7 @@ var signs ={
     line: "The correct answer is: ",
     done: "All done!",
     finalScore: "Your final score is: ",
-    initials: "Enter initials: ",
-    highScore: "Highscores"
+    initials: "Enter initials: "
 }
 //main
 $(document).on("click",".choices", function(){
@@ -251,6 +250,20 @@ function finalPage(){
             initialSubmit.addClass("btn btn-secondary btn-lg btn-block");
             initialSubmit.html("Submit");
             $("#submitButton").append(initialSubmit);
+
+            //submit action
+            $("#submitButton").on("click", function(){
+                //var scoreContent = initialBox.value;
+                var initialInput = document.getElementById("initialBox").value;
+                var nameList = $("<li>");
+                nameList.append(initialInput + " score is " + score);
+                $("#nameList").append(nameList);
+                $("#submitButton").children().hide();
+                //console.log(initialInput);
+                $
+        
+                
+                });
 }
 
 
@@ -290,21 +303,32 @@ function clock(){
 }
 ////////////////////////////////////Timer///////////////////////////////
 
-////////////////////////////////////Scoreboard///////////////////////////////
+////////////////////////////////////Scoreboard popup///////////////////////////////
 
 $(document).ready(function() {
+    
     console.log('ready');
     $("#scoreBoard").on("click", function(){
-        var scoreContent = document.getElementById("modalBody");
+        //var scoreContent = document.getElementById("modalBody");
         
-        var scoreTitle = $("<h5>");
+        var scoreTitle = $("<h6>");
         scoreTitle.append(signs.highScore);
         $("#scoreTitle").append(scoreTitle);
-
-        
         });
     });
 
-
-
 ////////////////////////////////////ScoreBoard///////////////////////////////
+
+////////////////////////////////////addPerson///////////////////////////////
+/*
+function addPersonToList(event) {
+    event.preventDefault();
+    var scoreContent = document.getElementById("initialBox");
+    var nameList = $("<li>");
+    nameList.append(scoreContent);
+    $("#nameList").append(nameList);
+    console.log(nameList);
+    console.log(scoreContent);
+  
+  }*/
+////////////////////////////////////addPerson///////////////////////////////
