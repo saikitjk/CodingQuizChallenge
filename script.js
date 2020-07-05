@@ -86,31 +86,42 @@
 /////////////////////////////QuestionBank//////////////////////////////
 
 
+
+var userList = [];
+
+
+////////////////////////renPreviousUser///////////////////
+$(document).ready(function () {   
+    init(); 
+    function renPreviousUser(){
+        for (var i = 0; i < userList.length; i++){
+            var oldUser = userList[i];
+            var previousUser = $("<li>");
+
+            previousUser.append(oldUser);
+            
+            $("#previousUser").append(previousUser);
+        }
+    }
+ 
+    function init(){
+        //console.log(userName);
+        //console.log(userScore);
+        
+        var storedUser = JSON.parse(localStorage.getItem("userList"));
+
+        if (storedUser !== null){
+            userList = storedUser;
+        }
+        renPreviousUser();
+    }
+    });
+
+
 var questionNum = 0;
 var userGuess;
 var timer;
 var score = 0;
-
-////////////////////////renPreviousUser///////////////////
-$(document).ready(function () {
-    function renPreviousUser(){
-        var userName = localStorage.getItem("userName") ;
-        var userScore = localStorage.getItem("userScore");
-        console.log(userName);
-        console.log(userScore);
-        var previousUser = $("<li>");
-        previousUser.append(userName + " score is " + userScore);
-        $("#previousUser").append(previousUser);
-        console.log(previousUser);
-
-        //$("#previousUser").append(previousUser);
-
-    }
-
-
-renPreviousUser();
-});
-
 
 function start(){
     var instruction = document.getElementById("instruction");
@@ -293,13 +304,23 @@ function finalPage(){
                 $("#submitButton").children().hide();
                 $("#resetButton").children().show();
                 //console.log(initialInput);
+                //console.log(nameList);
+                if(initialInput === ""){
+                    return;
+                }
 
-                localStorage.setItem("userName", JSON.stringify(initialInput));
-                localStorage.setItem("userScore", JSON.stringify(score));
+                userList.push(initialInput, score);//push to userList Array
+                console.log(userList);
+                
+                function storeUser(){
+                    localStorage.setItem("userList", JSON.stringify(userList));//store the array
+                    }
 
-        
+                storeUser();
+                renPreviousUser();
                 
             });
+
             //reset action
             $("#resetButton").on("click", function(){
                 location.reload();
@@ -339,16 +360,9 @@ function clock(){
 }
 ////////////////////////////////////Timer///////////////////////////////
 
-////////////////////////////////////Scoreboard popup///////////////////////////////
+////////////////////////////////////Store Userinfo///////////////////////////////
 
     
-/*
-    $("#scoreBoard").on("click", function(){
-        //var scoreContent = document.getElementById("modalBody");
-        
-        renPreviousUser();
-        
-        });
 
 
 ////////////////////////////////////ScoreBoard///////////////////////////////
