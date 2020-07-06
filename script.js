@@ -94,11 +94,13 @@ var userList = [];
 $(document).ready(function () {   
     init(); 
     function renPreviousUser(){
-        for (var i = 0; i < userList.length; i++){
+        for (var i = 0; i < userList.length; i+=2){
             var oldUser = userList[i];
+            var oldScore = userList[i+1]
             var previousUser = $("<li>");
+            previousUser.attr("data-index", i);
 
-            previousUser.append(oldUser);
+            previousUser.append(oldUser + " score is " + oldScore);
             
             $("#previousUser").append(previousUser);
         }
@@ -116,7 +118,20 @@ $(document).ready(function () {
         renPreviousUser();
     }
     });
+////////////////////////renPreviousUser and get data from local storage///////////////////
 
+////////////////////////Clear scoreboard data///////////////////////////
+function clearData(){
+    //var clearOldUser = document.getElementById("previousUser").value;
+    userList.splice(0, userList.length);
+    console.log(userList);
+
+    storeUser();
+    init();
+    renPreviousUser();
+    
+}
+////////////////////////Clear scoreboard data///////////////////////////
 
 var questionNum = 0;
 var userGuess;
@@ -248,6 +263,9 @@ $(document).on("click",".choices", function(){
 })//main close tag
 /////////////////////////////CommonQuestion///////////////////////////////
 
+function storeUser(){
+    localStorage.setItem("userList", JSON.stringify(userList));//store the array
+    }
 
 function finalPage(){
             $("#completeMsg").children().show();
@@ -312,9 +330,7 @@ function finalPage(){
                 userList.push(initialInput, score);//push to userList Array
                 console.log(userList);
                 
-                function storeUser(){
-                    localStorage.setItem("userList", JSON.stringify(userList));//store the array
-                    }
+                ///** */
 
                 storeUser();
                 renPreviousUser();
