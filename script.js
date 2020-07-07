@@ -89,10 +89,26 @@
 
 var userList = [];
 
+////////////////////////Clear scoreboard data///////////////////////////
+function clearData(){
+    userList.splice(0, userList.length);
+    //console.log('diu');
+    
+    storeUser();
+    //console.log('dllm');
+    //location.reload();
+    $('.modal-body').find('div').empty();
+}
+
+////////////////////////Clear scoreboard data///////////////////////////
+
 
 ////////////////////////renPreviousUser///////////////////
 $(document).ready(function () {  
-    init(); 
+    
+    getUser(); 
+    renPreviousUser();
+
     function renPreviousUser(){
         for (var i = 0; i < userList.length; i+=2){
             var oldUser = userList[i];
@@ -105,8 +121,7 @@ $(document).ready(function () {
             $("#previousUser").append(previousUser);
         }
     }
-    
-    function init(){
+    function getUser(){
         //console.log(userName);
         //console.log(userScore);
         
@@ -115,23 +130,11 @@ $(document).ready(function () {
         if (storedUser !== null){
             userList = storedUser;
         }
-        renPreviousUser();
+        //renPreviousUser();
     }
    });
 ////////////////////////renPreviousUser and get data from local storage///////////////////
 
-////////////////////////Clear scoreboard data///////////////////////////
-function clearData(){
-    //var clearOldUser = document.getElementById("previousUser").value;
-    userList.splice(0, userList.length);
-    
-    storeUser();
-    init();
-    renPreviousUser();
-
-    
-}
-////////////////////////Clear scoreboard data///////////////////////////
 
 var questionNum = 0;
 var userGuess;
