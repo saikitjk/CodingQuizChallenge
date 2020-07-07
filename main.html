@@ -15,6 +15,16 @@
     <link rel="stylesheet" href="style.css">
     <script src="script.js"></script>
 
+    <audio id="wrongSound">
+        <source src="Assets/WrongSound.mp3" type="audio/mpeg">
+    </audio> 
+    <audio id="rightSound">
+        <source src="Assets/RightSound.mp3" type="audio/mpeg">
+    </audio>       
+        <!--The sound effect is permitted for commercial use under license Creative Commons Attribution 4.0 International License”-->
+        <!--https://creativecommons.org/licenses/by/4.0/-->
+    
+
     </head>
     
     <body>
@@ -91,12 +101,12 @@
                     </div>
                     <div class="modal-body" id="modalBody">
                         <h6>Highscores</h6>
-                        <div id="previousUser"></div>
+                        <div class="modal-body1" id="previousUser"></div>
                         <div id="nameList"></div>
                     </div>
                     <div class="modal-footer">
                       <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                      <button type="button" class="btn btn-primary" data-dismiss="modal" id="clearButton" onclick="clearData()">Clear Highscores</button>
+                      <button type="button" onclick="clearData()" class="btn btn-primary">Clear Highscores</button>
                     </div>
                   </div>
                 </div>

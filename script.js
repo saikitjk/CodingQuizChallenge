@@ -91,7 +91,7 @@ var userList = [];
 
 
 ////////////////////////renPreviousUser///////////////////
-$(document).ready(function () {   
+$(document).ready(function () {  
     init(); 
     function renPreviousUser(){
         for (var i = 0; i < userList.length; i+=2){
@@ -105,7 +105,7 @@ $(document).ready(function () {
             $("#previousUser").append(previousUser);
         }
     }
- 
+    
     function init(){
         //console.log(userName);
         //console.log(userScore);
@@ -117,18 +117,18 @@ $(document).ready(function () {
         }
         renPreviousUser();
     }
-    });
+   });
 ////////////////////////renPreviousUser and get data from local storage///////////////////
 
 ////////////////////////Clear scoreboard data///////////////////////////
 function clearData(){
     //var clearOldUser = document.getElementById("previousUser").value;
     userList.splice(0, userList.length);
-    console.log(userList);
-
+    
     storeUser();
     init();
     renPreviousUser();
+
     
 }
 ////////////////////////Clear scoreboard data///////////////////////////
@@ -160,10 +160,15 @@ function start(){
     
 }//start() close tag
 
+//sound effect///
+
+
 /////////////////////////////CommonQuestion///////////////////////////////
 function displayCommonQuestions(){
     var questionRow = document.getElementById("commonQuestions");
     var quizOption = document.getElementById("quizOption");
+    var wrongSound = document.getElementById("wrongSound");
+    var rightSound = document.getElementById("rightSound");
 
     quizOption.style.display = "block";
     if (quizOption.style.display  === "block"){
@@ -220,6 +225,7 @@ $(document).on("click",".choices", function(){
     
 
     if(userGuess === commonQuestions[questionNum].answer && timer > 0){
+        
         var result = $("<p>");
         result.append(signs.correct);//append the correct
         $("#answer").append(result)//link it back to html
@@ -227,13 +233,21 @@ $(document).on("click",".choices", function(){
         score+=5;
         console.log(score)
         questionNum++;
-        setTimeout(displayCommonQuestions, 1500);
+        rightSound.play();
+        setTimeout(displayCommonQuestions, 1100);
 
 
         //console.log(questionNum, commonQuestions.length);
         
         if(questionNum === commonQuestions.length){
-            setTimeout(finalPage, 2500);
+            if(timer >50){
+                score += 10;
+            }
+            else if (timer > 40 && time <49){
+                score += 5;
+            }
+            rightSound.play();
+            setTimeout(finalPage, 1100);
             clearInterval(time);
         }
     }
@@ -250,13 +264,21 @@ $(document).on("click",".choices", function(){
         timer -= 15;
         score -= 2;
         questionNum++;
-        setTimeout(displayCommonQuestions, 2000);
+        wrongSound.play();
+        setTimeout(displayCommonQuestions, 1500);
 
         //console.log(questionNum, commonQuestions.length);
 
 
         if(questionNum === commonQuestions.length){
-            setTimeout(finalPage, 2500);
+            if(timer >50){
+                score += 10;
+            }
+            else if (timer > 40 && time <49){
+                score += 5;
+            }
+            wrongSound.play();
+            setTimeout(finalPage, 1500);
             clearInterval(time);
         }
     }
@@ -279,7 +301,6 @@ function finalPage(){
 
             //final score
             var finalScoreMsg = $("<p>");
-            //finalScoreMsg.append(signs.finalScore);
             finalScoreMsg = signs.finalScore + score;
             $("#finalScore").append(finalScoreMsg);
 
@@ -330,7 +351,7 @@ function finalPage(){
                 userList.push(initialInput, score);//push to userList Array
                 console.log(userList);
                 
-                ///** */
+                
 
                 storeUser();
                 renPreviousUser();
@@ -375,24 +396,3 @@ function clock(){
     }
 }
 ////////////////////////////////////Timer///////////////////////////////
-
-////////////////////////////////////Store Userinfo///////////////////////////////
-
-    
-
-
-////////////////////////////////////ScoreBoard///////////////////////////////
-
-////////////////////////////////////addPerson///////////////////////////////
-/*
-function addPersonToList(event) {
-    event.preventDefault();
-    var scoreContent = document.getElementById("initialBox");
-    var nameList = $("<li>");
-    nameList.append(scoreContent);
-    $("#nameList").append(nameList);
-    console.log(nameList);
-    console.log(scoreContent);
-  
-  }*/
-////////////////////////////////////addPerson///////////////////////////////
