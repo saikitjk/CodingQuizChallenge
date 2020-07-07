@@ -73,3 +73,21 @@
     justify-content: center;
 
 }
+@media (max-width: 510px) {
+    .modal-lg {
+    max-width: 50vw;
+    left:25vw;
+  }
+}
+@media (min-width: 768px) {
+     .modal-lg {
+      width: 50%;
+
+     }
+
+  }
+@media (min-width: 992px) {
+    .modal-lg {
+      width: 50%;
+    }
+  }
