@@ -1,30 +1,6 @@
 
-    //question bank 1
-    var syntaxQuestions = [
-        {
-            title:'What is the correct syntax for referring to an external script called "xxx.js"?',
-            choices:['<script src="xxx.js">','<script href"xxx.js">','<script name="xxx.js">','<script execute="xxx.js">'],
-            answer: '<script src="xxx.js">'       
-        },
-        {
-            title: 'The condition in an if / else statement is enclosed within ____.',
-            choices: ['quotes', 'curly brackets', 'parentheses', 'square brackets'],
-            answer: 'parentheses'
-        },
-        {
-            title:'Inside which HTML element do we put the JavaScript?',
-            choices:['<js>','<javascript>','<scripting>','<script>'],
-            answer:  '<script>'
-        },
-
-        {
-            title:'What is the correct JavaScript syntax to change the content of the following HTML element? <p id="demo">This is a demonstration.</p>',
-            choices:['document.getElement("p").innerHTML="Hello Word!";','#demo.innerHTML = "Hello Word!";','document.getElmentById("demo").innerHTML="Hello World!";','document.getElmentByName("p").innerHTML="Hello World!";'],
-            answer: 'document.getElmentById("demo").innerHTML="Hello World!";'
-        }
-      ]
-    ///question bank 2
-    var commonQuestions = [
+      ///question bank 1
+      var commonQuestions = [
         {
             title: 'Commonly used data types DO NOT include:',
             choices: ['strings', 'booleans', 'alerts', 'numbers'],
@@ -51,37 +27,63 @@
             answer: '2names'
         }
 
-    ]
+    ];
+    
+    //question bank 2
+    var synQuestions = [
+        {
+            title2:'Inside which HTML element do we put the JavaScript?',
+            choices2:['js','javascript','scripting','script'],
+            answer2:  'script'
+        },
+        {
+            title2: 'The condition in an if / else statement is enclosed within ____.',
+            choices2: ['quotes', 'curly brackets', 'parentheses', 'square brackets'],
+            answer2: 'parentheses'
+        },
+        {
+            title2:'What is the correct syntax for referring to an external script called "xxx.js"?',
+            choices2:['script src="xxx.js','script href"xxx.js','script name="xxx.js','script execute="xxx.js'],
+            answer2: 'script src="xxx.js'       
+        },
+
+        {
+            title2:'What is the correct JavaScript syntax to change the content of the following HTML element? <p id="demo">This is a demonstration.</p>',
+            choices2:['document.getElement("p").innerHTML="Hello Word!";','#demo.innerHTML = "Hello Word!";','document.getElmentById("demo").innerHTML="Hello World!";','document.getElmentByName("p").innerHTML="Hello World!";'],
+            answer2: 'document.getElmentById("demo").innerHTML="Hello World!";'
+        }
+      ];
+
 
     ///question bank 3
     var longQuestions = [
         {
-            title: 'Which types of image maps can be used with JavaScript?',
-            choices: ['Server-side image maps', 'Client-side image maps', 'Server-side image maps and Client-side image maps', 'None of the above'],
-            answer: 'Client-side image maps'
+            title3: 'Which types of image maps can be used with JavaScript?',
+            choices3: ['Server-side image maps', 'Client-side image maps', 'Server-side image maps and Client-side image maps', 'None of the above'],
+            answer3: 'Client-side image maps'
         },
         {
-            title: 'What is the data type of the Go variable if user entered 15 to the following prompt? Go = prompt("How many characters you want to include?")',
-            choices: ['string', 'integer', 'boolean;', 'object'],
-            answer: 'string'
+            title3: 'What is the data type of the Go variable if user entered 15 to the following prompt? Go = prompt("How many characters you want to include?")',
+            choices3: ['string', 'integer', 'boolean;', 'object'],
+            answer3: 'string'
         },
         {
-            title: 'Which event occurs when the user clicks on an HTML element?',
-            choices: ['onmouseclick', 'onchange', 'onclick  ', 'onmouseover'],
-            answer: 'onclick  '
+            title3: 'Which event occurs when the user clicks on an HTML element?',
+            choices3: ['onmouseclick', 'onchange', 'onclick', 'onmouseover'],
+            answer3: 'onclick'
         },
         {
-            title: 'Which best explains getSelection()?',
-            choices: ['Returns the VALUE of a selected OPTION.', 'Returns document.URL of the window in focus.', 'Returns the value of cursor-selected text', 'Returns the VALUE of a checked radio input.'],
-            answer: 'Returns the value of cursor-selected text'
+            title3: 'Which best explains getSelection()?',
+            choices3: ['Returns the VALUE of a selected OPTION.', 'Returns document.URL of the window in focus.', 'Returns the value of cursor-selected text', 'Returns the VALUE of a checked radio input.'],
+            answer3: 'Returns the value of cursor-selected text'
         },
         {
-            title: 'Choose the client-side JavaScript object:',
-            choices: ['Database', ' Cursor', 'Client', 'FileUpLoad'],
-            answer: 'FileUpLoad'
+            title3: 'Choose the client-side JavaScript object:',
+            choices3: ['Database', ' Cursor', 'Client', 'FileUpLoad'],
+            answer3: 'FileUpLoad'
         }
 
-    ]
+    ];
 
 /////////////////////////////QuestionBank//////////////////////////////
 
@@ -159,6 +161,12 @@ function start(){
     $("#comQuest").on("click", function(){
     countDown();
     });
+    $("#synQuest").on("click", function(){
+        countDown();
+    });
+    $("#longQuest").on("click", function(){
+        countDown();
+    });
 ///end tag
     
 }//start() close tag
@@ -188,6 +196,10 @@ function displayCommonQuestions(){
     $("#answer").children().hide();
     $("#sign").children().hide();
     $("#timer").children().hide();
+    $("#synTitle").children().hide();
+    $("#synChoices").children().hide();
+    $("#synAnswer").children().hide();
+    $("#synSign").children().hide();
     
     
     //$("#completeMsg").children().hide();
@@ -199,6 +211,7 @@ function displayCommonQuestions(){
     displayQuest.attr("id", commonQuestions[questionNum].choices);
     displayQuest.append(commonQuestions[questionNum].title);
     $("#title").append(displayQuest);
+    console.log(displayQuest);
 
     for (i = 0; i < 4; i++) {
 
@@ -288,11 +301,241 @@ $(document).on("click",".choices", function(){
 })//main close tag
 /////////////////////////////CommonQuestion///////////////////////////////
 
+/////////////////////////////synQuestion///////////////////////////////
+function displaySyntaxQuestions(){
+    var questionRow = document.getElementById("synQuestions");
+    var quizOption = document.getElementById("quizOption");
+    var wrongSound = document.getElementById("wrongSound");
+    var rightSound = document.getElementById("rightSound");
+
+    quizOption.style.display = "block";
+    if (quizOption.style.display  === "block"){
+        quizOption.style.display = "none";
+        questionRow.style.display = "block";
+    }
+    else{
+        quizOption.style.display= "block";
+        questionRow.style.display = "none";
+    }
+
+    $("#commonQuestions").hide();
+    
+    $("#synTitle").children().hide();
+    $("#synChoices").children().hide();
+    $("#synAnswer").children().hide();
+    $("#synSign").children().hide();
+    $("#timer").children().hide();
+    
+    
+    
+
+    var displayQuest = $("<h2>");
+    displayQuest.attr("id", synQuestions[questionNum].choices2);
+    displayQuest.append(synQuestions[questionNum].title2);
+    $("#synTitle").append(displayQuest);
+    //console.log("0",synQuestions.length);
+    //console.log("1",questionNum);
+    //console.log("2",synQuestions[questionNum].choices2);
+    //console.log("3",synQuestions[questionNum].title2);
+    //console.log("4",displayQuest);
+
+    for (i = 0; i < 4; i++) {
+
+        var choiceList = $("<button>");
+        choiceList.attr("type", "button");
+        choiceList.attr("value", synQuestions[questionNum].choices2[i]);
+        choiceList.css("margin-top", "50px");
+        choiceList.addClass("btn btn-secondary btn-lg btn-block synChoices");
+        choiceList.append(synQuestions[questionNum].choices2[i]);
+        $("#synChoices").append(choiceList);
+    }
+
+}//displayCommonQuestions() close tag
+
+$(document).on("click",".synChoices", function(){
+    userGuess = $(this).attr("value");
+    $("synAnswer").empty
+    
+
+    if(userGuess === synQuestions[questionNum].answer2 && timer > 0){
+        
+        var result = $("<p>");
+        result.append(signs.correct);//append the correct
+        $("#synAnswer").append(result)//link it back to html
+
+        score+=5;
+        console.log(score)
+        questionNum++;
+        rightSound.play();
+        setTimeout(displaySyntaxQuestions, 1100);
+
+
+        //console.log(questionNum, commonQuestions.length);
+        
+        if(questionNum === synQuestions.length){
+            if(timer >50){
+                score += 10;
+            }
+            else if (timer > 40 && time <49){
+                score += 5;
+            }
+            rightSound.play();
+            setTimeout(finalPage, 1100);
+            clearInterval(time);
+        }
+    }
+    else if (userGuess != synQuestions[questionNum].answer2 && timer > 0){
+        
+        var result = $("<h5>");
+        result.append(signs.incorrect);//append the correct
+        $("#synSign").append(result);//link it back to html
+
+        var answer = $("<p>");
+        answer.append(signs.line,synQuestions[questionNum].answer2);
+        $("#synAnswer").append(answer);
+
+        timer -= 15;
+        score -= 2;
+        questionNum++;
+        wrongSound.play();
+        setTimeout(displaySyntaxQuestions, 1500);
+
+        //console.log(questionNum, commonQuestions.length);
+
+
+        if(questionNum === synQuestions.length){
+            if(timer >50){
+                score += 10;
+            }
+            else if (timer > 40 && time <49){
+                score += 5;
+            }
+            wrongSound.play();
+            setTimeout(finalPage, 1500);
+            clearInterval(time);
+        }
+    }
+})//main close tag
+/////////////////////////////synQuestion///////////////////////////////
+
+/////////////////////////////longQuestion///////////////////////////////
+function displayLongQuestions(){
+    var questionRow = document.getElementById("longQuestions");
+    var quizOption = document.getElementById("quizOption");
+    var wrongSound = document.getElementById("wrongSound");
+    var rightSound = document.getElementById("rightSound");
+
+    quizOption.style.display = "block";
+    if (quizOption.style.display  === "block"){
+        quizOption.style.display = "none";
+        questionRow.style.display = "block";
+    }
+    else{
+        quizOption.style.display= "block";
+        questionRow.style.display = "none";
+    }
+
+    $("#commonQuestions").hide();
+    $("#synQuestions").hide();
+    $("#longTitle").children().hide();
+    $("#longChoices").children().hide();
+    $("#longAnswer").children().hide();
+    $("#longSign").children().hide();
+    $("#timer").children().hide();
+    
+    
+    
+
+    var displayQuest = $("<h2>");
+    displayQuest.attr("id", longQuestions[questionNum].choices3);
+    displayQuest.append(longQuestions[questionNum].title3);
+    $("#longTitle").append(displayQuest);
+ 
+    for (i = 0; i < 4; i++) {
+
+        var choiceList = $("<button>");
+        choiceList.attr("type", "button");
+        choiceList.attr("value", longQuestions[questionNum].choices3[i]);
+        choiceList.css("margin-top", "50px");
+        choiceList.addClass("btn btn-secondary btn-lg btn-block longChoices");
+        choiceList.append(longQuestions[questionNum].choices3[i]);
+        $("#longChoices").append(choiceList);
+    }
+
+}//displayCommonQuestions() close tag
+
+$(document).on("click",".longChoices", function(){
+    userGuess = $(this).attr("value");
+    $("longAnswer").empty
+    
+
+    if(userGuess === longQuestions[questionNum].answer3 && timer > 0){
+        
+        var result = $("<p>");
+        result.append(signs.correct);//append the correct
+        $("#longAnswer").append(result)//link it back to html
+
+        score+=5;
+        console.log(score)
+        questionNum++;
+        rightSound.play();
+        setTimeout(displayLongQuestions, 1100);
+
+
+  
+        
+        if(questionNum === longQuestions.length){
+            if(timer >50){
+                score += 10;
+            }
+            else if (timer > 40 && time <49){
+                score += 5;
+            }
+            rightSound.play();
+            setTimeout(finalPage, 1100);
+            clearInterval(time);
+        }
+    }
+    else if (userGuess != longQuestions[questionNum].answer3 && timer > 0){
+        
+        var result = $("<h5>");
+        result.append(signs.incorrect);//append the correct
+        $("#longSign").append(result);//link it back to html
+
+        var answer = $("<p>");
+        answer.append(signs.line,longQuestions[questionNum].answer3);
+        $("#longAnswer").append(answer);
+
+        timer -= 15;
+        score -= 2;
+        questionNum++;
+        wrongSound.play();
+        setTimeout(displayLongQuestions, 1500);
+
+
+        if(questionNum === longQuestions.length){
+            if(timer >50){
+                score += 10;
+            }
+            else if (timer > 40 && time <49){
+                score += 5;
+            }
+            wrongSound.play();
+            setTimeout(finalPage, 1500);
+            clearInterval(time);
+        }
+    }
+})//main close tag
+/////////////////////////////longQuestion///////////////////////////////
+
 function storeUser(){
     localStorage.setItem("userList", JSON.stringify(userList));//store the array
     }
 
 function finalPage(){
+            $("#commonQuestions").hide();
+            $("#synQuestions").hide();
+            $("#longQuestions").hide();
             $("#completeMsg").children().show();
             $("#finalScore").children().show();
             $("#initials").children().show();

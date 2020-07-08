@@ -53,9 +53,9 @@
                 <p>Please select the type of questions you would like to challenge.</p>
                 </section>
                 <br>
-                <button type="button" onclick="" class="btn btn-success">Syntax Questions</button>
+                <button type="button" id="synQuest" onclick="displaySyntaxQuestions()" class="btn btn-success">Syntax Questions</button>
                 <button type="button" id="comQuest" onclick="displayCommonQuestions()" class="btn btn-success">Common Questions</button>
-                <button type="button" onclick="" class="btn btn-success">Long Questions</button>
+                <button type="button" id="longQuest" onclick="displayLongQuestions()" class="btn btn-success">Long Questions</button>
             </div>
 
             <!--common questions-->
@@ -72,7 +72,42 @@
                 <div class="row" id="answerRow">
                     <div id="answer"></div>
                 </div>
+            </div>
+            
+            <!--syntax questions-->
+            <div class="container" id="synQuestions">
+                <div class="row" id="synQuestionRow">
+                    <div id="synTitle"></div>
+                </div>
+                <div class="row" id="synChoiceRow">
+                    <div id="synChoices"></div>
+                </div>
+                <div class="row" id="synSignRow">
+                    <div id="synSign"></div>
+                </div>
+                <div class="row" id="synAnswerRow">
+                    <div id="synAnswer"></div>
+                </div>
+            </div>
+
+            <!--long question-->
+            <div class="container" id="longQuestions">
+                <div class="row" id="longQuestionRow">
+                    <div id="longTitle"></div>
+                </div>
+                <div class="row" id="longChoiceRow">
+                    <div id="longChoices"></div>
+                </div>
+                <div class="row" id="longSignRow">
+                    <div id="longSign"></div>
+                </div>
+                <div class="row" id="longAnswerRow">
+                    <div id="longAnswer"></div>
+                </div>
+            </div>
+
                 <!--All done msg-->
+           
                 <div class="row" id="allDoneRow">
                     <div id="completeMsg"></div>
                 </div>
@@ -88,7 +123,7 @@
                 <div class="row" id="resetRow">
                     <div id="resetButton"></div>
                 </div>
-            </div>
+          
 
             <div class="modal fade" id="scoreCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
                 <div class="modal-dialog modal-dialog-centered modal-lg" role="document">

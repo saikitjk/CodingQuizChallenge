@@ -21,6 +21,8 @@
     display: none;
 }
 
+/*ComQuestion CSS*/
+
 #questionRow{
     margin-top: 60px;
     text-align: center;
@@ -43,6 +45,55 @@
     text-align: center;
     justify-content: center;
 }
+/*synQuestion CSS*/
+#synQuestionRow{
+    margin-top: 60px;
+    text-align: center;
+    justify-content: center;
+}
+
+#synChoiceRow{
+    text-align: center;
+    justify-content: center;
+}
+
+#synSignRow{
+    margin-top: 80px;
+    text-align: center;
+    justify-content: center;
+}
+
+#synAnswerRow{
+    margin-top: 20px;
+    text-align: center;
+    justify-content: center;
+}
+
+/*longQuestion CSS*/
+#longQuestionRow{
+    margin-top: 60px;
+    text-align: center;
+    justify-content: center;
+}
+
+#longChoiceRow{
+    text-align: center;
+    justify-content: center;
+}
+
+#longSignRow{
+    margin-top: 80px;
+    text-align: center;
+    justify-content: center;
+}
+
+#longAnswerRow{
+    margin-top: 20px;
+    text-align: center;
+    justify-content: center;
+}
+
+/*Final page css*/
 
 #allDoneRow{
     margin-top: 60px;
