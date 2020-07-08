@@ -8,7 +8,7 @@
 
 .container{
     /*background-color: #dddcdc;*/
-    min-height: calc(100vh - 64px); 
+    /*min-height: calc(100vh - 64px);*/ 
     align-items: center;
 }
 
@@ -17,7 +17,7 @@
     text-align: center;
 }
 
-.container li{
+.jumbotron li{
     text-align: left;
 }
 
