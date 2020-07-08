@@ -107,6 +107,9 @@ function clearData(){
 
 ////////////////////////renPreviousUser///////////////////
 $(document).ready(function () {  
+    $("#commonQuestions").hide();
+    $("#synQuestions").hide();
+    $("#longQuestions").hide();
     
     getUser(); 
     renPreviousUser();
