@@ -213,7 +213,7 @@ function displayCommonQuestions(){
     $("#title").append(displayQuest);
     console.log(displayQuest);
 
-    for (i = 0; i < 4; i++) {
+    for (i = 0; i < commonQuestions.length; i++) {
 
         var choiceList = $("<button>");
         choiceList.attr("type", "button");
@@ -339,7 +339,7 @@ function displaySyntaxQuestions(){
     //console.log("3",synQuestions[questionNum].title2);
     //console.log("4",displayQuest);
 
-    for (i = 0; i < 4; i++) {
+    for (i = 0; i < synQuestions.length; i++) {
 
         var choiceList = $("<button>");
         choiceList.attr("type", "button");
@@ -444,14 +444,18 @@ function displayLongQuestions(){
     $("#timer").children().hide();
     
     
-    
 
     var displayQuest = $("<h2>");
     displayQuest.attr("id", longQuestions[questionNum].choices3);
     displayQuest.append(longQuestions[questionNum].title3);
     $("#longTitle").append(displayQuest);
+     console.log("0",longQuestions.length);
+    console.log("1",questionNum);
+    console.log("2",longQuestions[questionNum].choices3);
+    console.log("3",longQuestions[questionNum].title3);
+    console.log("4",displayQuest);
  
-    for (i = 0; i < 4; i++) {
+    for (i = 0; i < longQuestions.length; i++) {
 
         var choiceList = $("<button>");
         choiceList.attr("type", "button");
