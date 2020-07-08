@@ -18,6 +18,18 @@ https://github.com/saikitjk/CodingQuizChallenge
 
 # Screemshot
 
+![Screen Shot 2020-07-07 at 10 06 58 PM](https://user-images.githubusercontent.com/34286313/86878768-88c1f600-c09e-11ea-9ff9-e0f21e58a72a.png)
+
+![Screen Shot 2020-07-07 at 10 07 05 PM](https://user-images.githubusercontent.com/34286313/86878788-937c8b00-c09e-11ea-9ba0-c2fe186073f3.png)
+
+![Screen Shot 2020-07-07 at 10 07 14 PM](https://user-images.githubusercontent.com/34286313/86878794-95dee500-c09e-11ea-873a-ff9108b4cae6.png)
+
+![Screen Shot 2020-07-07 at 10 08 37 PM](https://user-images.githubusercontent.com/34286313/86878811-9d9e8980-c09e-11ea-9c9f-ddc133ab6532.png)
+
+![Screen Shot 2020-07-07 at 10 08 33 PM](https://user-images.githubusercontent.com/34286313/86878816-9f684d00-c09e-11ea-8022-10400694d101.png)
+
+
+
 # Credits
 https://www.w3schools.com
 
