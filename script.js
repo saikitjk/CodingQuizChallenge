@@ -48,7 +48,7 @@
         },
 
         {
-            title2:'What is the correct JavaScript syntax to change the content of the following HTML element? p id="demo">This is a demonstration.</p',
+            title2:'What is the correct JavaScript syntax to change the content of the following HTML element? &ltp&gt id="demo">This is a demonstration.&lt;/p&gt',
             choices2:['document.getElement("p").innerHTML="Hello Word!";','#demo.innerHTML = "Hello Word!";','document.getElmentById("demo").innerHTML="Hello World!";','document.getElmentByName("p").innerHTML="Hello World!";'],
             answer2: 'document.getElmentById("demo").innerHTML="Hello World!";'
         }
@@ -213,8 +213,8 @@ function displayCommonQuestions(){
     $("#title").append(displayQuest);
     console.log(displayQuest);
 
-    for (i = 0; i < commonQuestions.length; i++) {
-
+    for (i = 0; i < 4; i++) {
+        console.log(commonQuestions.length);
         var choiceList = $("<button>");
         choiceList.attr("type", "button");
         choiceList.attr("value", commonQuestions[questionNum].choices[i]);
@@ -339,7 +339,7 @@ function displaySyntaxQuestions(){
     //console.log("3",synQuestions[questionNum].title2);
     //console.log("4",displayQuest);
 
-    for (i = 0; i < synQuestions.length; i++) {
+    for (i = 0; i < 4; i++) {
 
         var choiceList = $("<button>");
         choiceList.attr("type", "button");
@@ -455,7 +455,7 @@ function displayLongQuestions(){
     //console.log("3",longQuestions[questionNum].title3);
     //console.log("4",displayQuest);
  
-    for (i = 0; i < longQuestions.length; i++) {
+    for (i = 0; i < 4; i++) {
 
         var choiceList = $("<button>");
         choiceList.attr("type", "button");

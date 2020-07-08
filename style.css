@@ -17,6 +17,10 @@
     text-align: center;
 }
 
+.container li{
+    text-align: left;
+}
+
 .hide{
     display: none;
 }
