@@ -48,7 +48,7 @@
         },
 
         {
-            title2:'What is the correct JavaScript syntax to change the content of the following HTML element? <p id="demo">This is a demonstration.</p>',
+            title2:'What is the correct JavaScript syntax to change the content of the following HTML element? p id="demo">This is a demonstration.</p',
             choices2:['document.getElement("p").innerHTML="Hello Word!";','#demo.innerHTML = "Hello Word!";','document.getElmentById("demo").innerHTML="Hello World!";','document.getElmentByName("p").innerHTML="Hello World!";'],
             answer2: 'document.getElmentById("demo").innerHTML="Hello World!";'
         }
@@ -246,7 +246,7 @@ $(document).on("click",".choices", function(){
         result.append(signs.correct);//append the correct
         $("#answer").append(result)//link it back to html
 
-        score+=5;
+        score+=10;
         console.log(score)
         questionNum++;
         rightSound.play();
@@ -277,8 +277,8 @@ $(document).on("click",".choices", function(){
         answer.append(signs.line,commonQuestions[questionNum].answer);
         $("#answer").append(answer);
 
-        timer -= 15;
-        score -= 2;
+        timer -= 10;
+        score -= 5;
         questionNum++;
         wrongSound.play();
         setTimeout(displayCommonQuestions, 1500);
@@ -363,7 +363,7 @@ $(document).on("click",".synChoices", function(){
         result.append(signs.correct);//append the correct
         $("#synAnswer").append(result)//link it back to html
 
-        score+=5;
+        score+=10;
         console.log(score)
         questionNum++;
         rightSound.play();
@@ -394,8 +394,8 @@ $(document).on("click",".synChoices", function(){
         answer.append(signs.line,synQuestions[questionNum].answer2);
         $("#synAnswer").append(answer);
 
-        timer -= 15;
-        score -= 2;
+        timer -= 10;
+        score -= 5;
         questionNum++;
         wrongSound.play();
         setTimeout(displaySyntaxQuestions, 1500);
@@ -449,11 +449,11 @@ function displayLongQuestions(){
     displayQuest.attr("id", longQuestions[questionNum].choices3);
     displayQuest.append(longQuestions[questionNum].title3);
     $("#longTitle").append(displayQuest);
-     console.log("0",longQuestions.length);
-    console.log("1",questionNum);
-    console.log("2",longQuestions[questionNum].choices3);
-    console.log("3",longQuestions[questionNum].title3);
-    console.log("4",displayQuest);
+    //console.log("0",longQuestions.length);
+    //console.log("1",questionNum);
+    //console.log("2",longQuestions[questionNum].choices3);
+    //console.log("3",longQuestions[questionNum].title3);
+    //console.log("4",displayQuest);
  
     for (i = 0; i < longQuestions.length; i++) {
 
@@ -479,7 +479,7 @@ $(document).on("click",".longChoices", function(){
         result.append(signs.correct);//append the correct
         $("#longAnswer").append(result)//link it back to html
 
-        score+=5;
+        score+=10;
         console.log(score)
         questionNum++;
         rightSound.play();
@@ -510,8 +510,8 @@ $(document).on("click",".longChoices", function(){
         answer.append(signs.line,longQuestions[questionNum].answer3);
         $("#longAnswer").append(answer);
 
-        timer -= 15;
-        score -= 2;
+        timer -= 10;
+        score -= 5;
         questionNum++;
         wrongSound.play();
         setTimeout(displayLongQuestions, 1500);
