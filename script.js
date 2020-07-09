@@ -245,6 +245,9 @@ $(document).on("click",".choices", function(){
 
     if(userGuess === commonQuestions[questionNum].answer && timer > 0){
         rightSound.play();
+        $("#title").children().hide();
+        $("#choices").children().hide();
+        $("#answer").children().hide();
         var result = $("<p>");
         result.append(signs.correct);//append the correct
         $("#answer").append(result)//link it back to html
@@ -272,6 +275,9 @@ $(document).on("click",".choices", function(){
     }
     else if (userGuess != commonQuestions[questionNum].answer && timer > 0){
         wrongSound.play();
+        $("#title").children().hide();
+        $("#choices").children().hide();
+        $("#answer").children().hide();
         var result = $("<h5>");
         result.append(signs.incorrect);//append the correct
         $("#sign").append(result);//link it back to html
@@ -279,12 +285,12 @@ $(document).on("click",".choices", function(){
         var answer = $("<p>");
         answer.append(signs.line,commonQuestions[questionNum].answer);
         $("#answer").append(answer);
-
         timer -= 10;
         score -= 5;
         questionNum++;
         
         setTimeout(displayCommonQuestions, 1500);
+        
 
         //console.log(questionNum, commonQuestions.length);
 
@@ -353,7 +359,7 @@ function displaySyntaxQuestions(){
         $("#synChoices").append(choiceList);
     }
 
-}//displayCommonQuestions() close tag
+}//displaysynQuestions() close tag
 
 $(document).on("click",".synChoices", function(){
     userGuess = $(this).attr("value");
@@ -362,6 +368,9 @@ $(document).on("click",".synChoices", function(){
 
     if(userGuess === synQuestions[questionNum].answer2 && timer > 0){
         rightSound.play();
+        $("#synTitle").children().hide();
+        $("#synChoices").children().hide();
+        $("#synAnswer").children().hide();
         var result = $("<p>");
         result.append(signs.correct);//append the correct
         $("#synAnswer").append(result)//link it back to html
@@ -389,6 +398,9 @@ $(document).on("click",".synChoices", function(){
     }
     else if (userGuess != synQuestions[questionNum].answer2 && timer > 0){
         wrongSound.play();
+        $("#synTitle").children().hide();
+        $("#synChoices").children().hide();
+        $("#synAnswer").children().hide();
         var result = $("<h5>");
         result.append(signs.incorrect);//append the correct
         $("#synSign").append(result);//link it back to html
@@ -469,7 +481,7 @@ function displayLongQuestions(){
         $("#longChoices").append(choiceList);
     }
 
-}//displayCommonQuestions() close tag
+}//displayLongQuestions() close tag
 
 $(document).on("click",".longChoices", function(){
     userGuess = $(this).attr("value");
@@ -478,6 +490,9 @@ $(document).on("click",".longChoices", function(){
 
     if(userGuess === longQuestions[questionNum].answer3 && timer > 0){
         rightSound.play();
+        $("#longTitle").children().hide();
+        $("#longChoices").children().hide();
+        $("#longAnswer").children().hide();
         var result = $("<p>");
         result.append(signs.correct);//append the correct
         $("#longAnswer").append(result)//link it back to html
@@ -505,6 +520,9 @@ $(document).on("click",".longChoices", function(){
     }
     else if (userGuess != longQuestions[questionNum].answer3 && timer > 0){
         wrongSound.play();
+        $("#longTitle").children().hide();
+        $("#longChoices").children().hide();
+        $("#longAnswer").children().hide();
         var result = $("<h5>");
         result.append(signs.incorrect);//append the correct
         $("#longSign").append(result);//link it back to html
