@@ -244,7 +244,7 @@ $(document).on("click",".choices", function(){
     
 
     if(userGuess === commonQuestions[questionNum].answer && timer > 0){
-        
+        rightSound.play();
         var result = $("<p>");
         result.append(signs.correct);//append the correct
         $("#answer").append(result)//link it back to html
@@ -252,7 +252,7 @@ $(document).on("click",".choices", function(){
         score+=10;
         console.log(score)
         questionNum++;
-        rightSound.play();
+        
         setTimeout(displayCommonQuestions, 1100);
 
 
@@ -271,7 +271,7 @@ $(document).on("click",".choices", function(){
         }
     }
     else if (userGuess != commonQuestions[questionNum].answer && timer > 0){
-        
+        wrongSound.play();
         var result = $("<h5>");
         result.append(signs.incorrect);//append the correct
         $("#sign").append(result);//link it back to html
@@ -283,7 +283,7 @@ $(document).on("click",".choices", function(){
         timer -= 10;
         score -= 5;
         questionNum++;
-        wrongSound.play();
+        
         setTimeout(displayCommonQuestions, 1500);
 
         //console.log(questionNum, commonQuestions.length);
@@ -361,7 +361,7 @@ $(document).on("click",".synChoices", function(){
     
 
     if(userGuess === synQuestions[questionNum].answer2 && timer > 0){
-        
+        rightSound.play();
         var result = $("<p>");
         result.append(signs.correct);//append the correct
         $("#synAnswer").append(result)//link it back to html
@@ -369,7 +369,7 @@ $(document).on("click",".synChoices", function(){
         score+=10;
         console.log(score)
         questionNum++;
-        rightSound.play();
+        
         setTimeout(displaySyntaxQuestions, 1100);
 
 
@@ -388,7 +388,7 @@ $(document).on("click",".synChoices", function(){
         }
     }
     else if (userGuess != synQuestions[questionNum].answer2 && timer > 0){
-        
+        wrongSound.play();
         var result = $("<h5>");
         result.append(signs.incorrect);//append the correct
         $("#synSign").append(result);//link it back to html
@@ -400,7 +400,7 @@ $(document).on("click",".synChoices", function(){
         timer -= 10;
         score -= 5;
         questionNum++;
-        wrongSound.play();
+        
         setTimeout(displaySyntaxQuestions, 1500);
 
         //console.log(questionNum, commonQuestions.length);
@@ -477,7 +477,7 @@ $(document).on("click",".longChoices", function(){
     
 
     if(userGuess === longQuestions[questionNum].answer3 && timer > 0){
-        
+        rightSound.play();
         var result = $("<p>");
         result.append(signs.correct);//append the correct
         $("#longAnswer").append(result)//link it back to html
@@ -485,7 +485,7 @@ $(document).on("click",".longChoices", function(){
         score+=10;
         console.log(score)
         questionNum++;
-        rightSound.play();
+        
         setTimeout(displayLongQuestions, 1100);
 
 
@@ -504,7 +504,7 @@ $(document).on("click",".longChoices", function(){
         }
     }
     else if (userGuess != longQuestions[questionNum].answer3 && timer > 0){
-        
+        wrongSound.play();
         var result = $("<h5>");
         result.append(signs.incorrect);//append the correct
         $("#longSign").append(result);//link it back to html
@@ -516,7 +516,7 @@ $(document).on("click",".longChoices", function(){
         timer -= 10;
         score -= 5;
         questionNum++;
-        wrongSound.play();
+        
         setTimeout(displayLongQuestions, 1500);
 
 
