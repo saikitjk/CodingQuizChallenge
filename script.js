@@ -248,7 +248,7 @@ $(document).on("click",".choices", function(){
         $("#title").children().hide();
         $("#choices").children().hide();
         $("#answer").children().hide();
-        var result = $("<p>");
+        var result = $("<h3>");
         result.append(signs.correct);//append the correct
         $("#answer").append(result)//link it back to html
 
@@ -371,7 +371,7 @@ $(document).on("click",".synChoices", function(){
         $("#synTitle").children().hide();
         $("#synChoices").children().hide();
         $("#synAnswer").children().hide();
-        var result = $("<p>");
+        var result = $("<h3>");
         result.append(signs.correct);//append the correct
         $("#synAnswer").append(result)//link it back to html
 
@@ -493,7 +493,7 @@ $(document).on("click",".longChoices", function(){
         $("#longTitle").children().hide();
         $("#longChoices").children().hide();
         $("#longAnswer").children().hide();
-        var result = $("<p>");
+        var result = $("<h3>");
         result.append(signs.correct);//append the correct
         $("#longAnswer").append(result)//link it back to html
 
